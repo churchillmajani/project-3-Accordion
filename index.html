@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="accordion">
+        <h2 class="accordion-title">Frequently Asked Questions</h2>
+
+        <div class="content-container">
+        <div class="question">What is the return policy?</div>
+        <div class="answer">We do not accept returns of used or worn items, unless the reason for return is that the item stopped working or became damaged or defective after reasonable use (in accordance with manufacturers guidelines where applicable) during the returns period. Items becoming defective after delivery is not an applicable return reason in respect of the following product categories: clothing, sport & fitness and consumables. If an item is covered by a warranty, and becomes damaged or defective during the warranty period, it is not covered by this Returns and Refunds Policy, but by the seller warranty. Warranty information is displayed on each product page.</div>
+        <div class="content-container">
+        <div class="question">What do people like in 2024?</div>
+        <div class="answer">Artificial Intelligence (tie for #1)
+            AI is the new electricity of our era. It's transforming everything from recruitment to compensation. Across the 15 trend lists we reviewed, AI was most connected to recruitment (dually affecting candidates and employers), how we maximize talent, skills and learning and development, and emerging ways we leverage fractional roles and the gig economy. Without question, as we've seen in the final days of 2023 with the New York Times copyright suit against OpenAI, this will be a year of unexpected change for how we connect and regulate this technology. Artificial intelligence will make defining what is human, and creating positive experiences through tech (whether through the candidate or employee experiences) even more critical in the marketplace.</div>
+        <div class="content-container">
+        <div class="question">What is the most famous NETFLIX show?</div>
+        <div class="answer">Breaking Bad is an American crime drama television series created and produced by Vince Gilligan for AMC. Set and filmed in Albuquerque, New Mexico, the series follows Walter White (Bryan Cranston), an underpaid, dispirited high-school chemistry teacher struggling with a recent diagnosis of stage-three lung cancer. White turns to a life of crime and partners with a former student, Jesse Pinkman (Aaron Paul), to produce and distribute methamphetamine to secure his family's financial future before he dies, while navigating the dangers of the criminal underworld. Breaking Bad premiered on AMC on January 20, 2008, and concluded on September 29, 2013, after five seasons consisting of 62 episodes.</div>
+    
+    </div>
+    <script src="index.js"></script>
+    <script>
+        const questions = document.querySelectorAll('.question');
+    
+        questions.forEach((question, index) => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('active');
+                if (answer.classList.contains('active')) {
+                    answer.style.height = answer.scrollHeight + 'px';
+                } else {
+                    answer.style.height = '0px';
+                }
+                // Close other answers
+                questions.forEach((otherQuestion, otherIndex) => {
+                    if (otherIndex !== index) {
+                        const otherAnswer = otherQuestion.nextElementSibling;
+                        otherAnswer.classList.remove('active');
+                        otherAnswer.style.height = '0px';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
